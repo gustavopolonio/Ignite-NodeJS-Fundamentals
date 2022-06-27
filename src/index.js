@@ -1,17 +1,26 @@
-const { response } = require('express')
 const express = require('express')
 
 const app = express()
+app.use(express.json())
 
-app.get("/courses", (_, response) => {
+app.get("/courses", (request, response) => {
+  // const query = request.query
+  // console.log(query)
+
   return response.json(["Course 1", "Course 2", "Course 3"])
 })
 
-app.post("/courses", (_, response) => {
+app.post("/courses", (request, response) => {
+  // const body = request.body
+  // console.log(body)
+
   return response.json(["Course 1", "Course 2", "Course 3", "Course 4"])
 })
 
-app.put("/courses/:id", (_, response) => {
+app.put("/courses/:id", (request, response) => {
+  // const params = request.params
+  // console.log(params)
+  
   return response.json(["Course 7", "Course 2", "Course 3", "Course 4"])
 })
 
@@ -19,7 +28,7 @@ app.patch("/courses/:id", (_, response) => {
   return response.json(["Course 7", "Course 6", "Course 3", "Course 4"])
 })
 
-app.delete("/courses/:id", (_, reponse) => {
+app.delete("/courses/:id", (_, response) => {
   return response.json(["Course 7", "Course 6", "Course 4"])
 })
 
